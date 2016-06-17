@@ -1,0 +1,78 @@
+choose shape, thickness, fill, color
+preview
+draw
+choose another shape...
+preview
+draw
+click on shape to edit
+	- right click on shape
+		- open popup menu
+			- find shape in stack
+				- edit color
+				- edit size
+				- edit position
+					- shape's params changes but its position in list stays same.
+				- when done, redraw
+	- any way to preview? 
+		change shapes params and draw to buffer, but save old params in an object
+		
+Mouse interaction:
+drag - 
+	if mouse.x and mouse.y are in shape:
+	
+		if mouse.x < shape.x + 15 AND mouse.y < shape.y + 15
+			drag changes shape.x and shape.y
+			resize width delta x
+			resize height delta y
+		if mouse.x < shape.x + 15 AND mouse.y > shape.y + height - 15
+			drag changes x and height
+			resize width by delta x
+		if mouse.x > shape.x + width - 15 AND mouse.y < shape.y + 15
+			drag changes y and width
+			resize width by delta y
+		if mouse.x > shape.x + width - 15 AND mouse.y > shape.y + height - 15
+			drag resizes width and height to 
+			
+			
+States:
+	Edit
+	Rectangle
+	Ellipse
+	Line
+	Freestyle
+	- radio buttons
+	
+	Context object that is passes to tool bar and edited by it.
+	State, lineThickness, color.
+	
+GUI objects:
+	tool bar
+		- data structure for states
+	canvas
+	glassPane
+	menu bar
+	
+Actions on canvas:
+	click
+		- blank
+		- shape
+	drag
+Actions on tool bar:
+	change state
+	change line thickness
+	change color
+Actions on menu bar
+	File > save
+		- open box to get file name to save
+		- check file name
+			- loop if bad
+			- save if good
+		- OR
+		- use java api for file save
+	File > open
+	File > new
+	File > close
+
+
+create bufferedImage, every draw will call add the image first.
+when finalized a shape is added to the bufferedImage.
